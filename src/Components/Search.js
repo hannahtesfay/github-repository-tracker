@@ -31,11 +31,11 @@ class Search extends React.Component {
       .then(user => {this.setState({
         userURL: user.html_url,
         userAvatar: user.avatar_url,
-        userRepoCount: user.public_repos
+        userRepoCount: `Repositories: ${user.public_repos}`
       })
       })
       .catch(err => console.warn('Oh dear...', err))
-   
+
 
     const url = `https://api.github.com/users/${this.state.nameInput}/repos`
 
@@ -51,20 +51,21 @@ class Search extends React.Component {
             obj.stars=r.stargazers_count;
             obj.forks=r.forks_count;
             obj.issues=r.open_issues_count;
-            userRepos.push(obj)
+            userRepos.push(obj);
           }
           this.setState({repoInfo: userRepos})
-          console.log(this.repoInfo)
+        
         })
         .catch(err => console.warn('Oh dear...', err))
   }
 
 
   render() {
+
     return (
       <div id="results">
         <form onSubmit={this.handleSubmit}>
-          <label for="nameInput">Enter your username: </label>
+          <label htmlFor="nameInput">Enter your username: </label>
           <input type="text" name="nameInput" placeholder="GitHub Username" onChange={this.handleInput} />
           <input type="submit" />
         </form>
@@ -72,13 +73,13 @@ class Search extends React.Component {
         <a href={this.state.userURL} target="_blank"><img src={this.state.userAvatar}/></a>
         <br/>
         <a href={this.state.userURL} target="_blank"><h3>{this.state.username}</h3></a>
+        <a href={`${this.state.userURL}/repositories`} target="_blank"><h5>{this.state.userRepoCount}</h5></a>
 
         <div>
           {this.state.repoInfo.map((item, index) => {
             return (
-              <div>
                 <div key={index} id="repoCard">
-                  
+
                   <a href={item.url} target="_blank">
                     <h3>{item.name}  <i className="fas fa-external-link-alt"></i></h3>
                   </a>
@@ -96,10 +97,9 @@ class Search extends React.Component {
                   <a href={`${item.url}/issues`}>
                     <p><i className="fas fa-exclamation-circle icon"></i> - {item.issues} issue(s)</p>
                   </a>
-                  
+
 
                 </div>
-              </div>
             )
           })}
         </div>
