@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0 0 20px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: rgb(153, 153, 153);
+}
+
+/*------------------------
+Navbar
+------------------------*/
+
+nav {
+  background-color: #24292e;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  top: 0;
+  position: sticky;
+}
+
+#grey {
+  color: rgb(167, 165, 165);
+}
+
+#title {
+  text-decoration: none;
+  color: white;
+}
+
+nav i {
+  font-size: 50px;
+}
+
+
+/*------------------------
+Form & inputs
+------------------------*/
+
+form {
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px rgb(204, 203, 203);
+}
+
+[type="submit"] {
+  font-weight: bold;
+  color: white;
+  background-color: #424447;
+}
+
+[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #696b6d;
+}
+
+/*------------------------
+Results
+------------------------*/
+
+img {
+  border-radius: 50%;
+  height: 100px;
+}
+
+#results {
+  text-align: center;
+}
+
+#repoCard {
+  background-color: rgb(241, 241, 241);
+  margin: 0px 20%;
+  padding: 10px;
+  border: solid 5px white;
+}
+
+.fa-external-link-alt {
+  color: rgb(153, 153, 153) !important;
+}
+
+.icon {
+  color: rgb(235, 198, 37);
+}
